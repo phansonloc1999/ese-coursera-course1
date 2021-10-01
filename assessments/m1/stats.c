@@ -37,12 +37,8 @@ void main()
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
-  sort_array(test, SIZE);
-  print_array(test, SIZE);
-  printf("Median: %.2f\n", find_median(test, SIZE));
-  printf("Mean: %.2f\n", find_mean(test, SIZE));
-  printf("Maximum: %u\n", find_maximum(test, SIZE));
-  printf("Minimum: %u\n", find_minimum(test, SIZE));
+
+  print_statistics(test, SIZE);
 }
 
 /* Add other Implementation File Code Here */
@@ -117,4 +113,12 @@ unsigned char find_minimum(unsigned char *array, int size)
     if (min > array[i]) min = array[i];
   }
   return min;
+}
+
+void print_statistics(unsigned char *array, int size)
+{
+  printf("Median: %.2f\n", find_median(array, SIZE));
+  printf("Mean: %.2f\n", find_mean(array, SIZE));
+  printf("Maximum: %u\n", find_maximum(array, SIZE));
+  printf("Minimum: %u\n", find_minimum(array, SIZE));
 }

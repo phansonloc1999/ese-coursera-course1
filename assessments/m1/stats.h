@@ -40,5 +40,6 @@ void sort_array(unsigned char *array, int size);
 void print_array(unsigned char* array, int size);
 float find_median(unsigned char *array, int size);
 float find_mean(unsigned char *array, int size);
+unsigned char find_maximum(unsigned char *array, int size);
 
 #endif /* __STATS_H__ */

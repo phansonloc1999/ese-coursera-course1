@@ -37,6 +37,7 @@ void main()
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
 
+  sort_array(test, SIZE);
   print_array(test, SIZE);
 }
 
@@ -49,4 +50,20 @@ void print_array(unsigned char *array, int size)
     printf("%d ", array[i]);
   }
   printf("\n");
+}
+
+void sort_array(unsigned char *array, int size)
+{
+  for (int i = 0; i < size - 1; i++)
+  {
+    for (int j = 0; j < size - i - 1; j++)
+    {
+      if (array[i] < array[j])
+      {
+        unsigned char temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+      }
+    }
+  }
 }

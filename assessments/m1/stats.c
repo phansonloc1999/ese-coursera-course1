@@ -42,6 +42,7 @@ void main()
   printf("Median: %.2f\n", find_median(test, SIZE));
   printf("Mean: %.2f\n", find_mean(test, SIZE));
   printf("Maximum: %u\n", find_maximum(test, SIZE));
+  printf("Minimum: %u\n", find_minimum(test, SIZE));
 }
 
 /* Add other Implementation File Code Here */
@@ -106,4 +107,14 @@ unsigned char find_maximum(unsigned char *array, int size)
     if (max < array[i]) max = array[i];
   }
   return max;
+}
+
+unsigned char find_minimum(unsigned char *array, int size)
+{
+  unsigned char min = array[0];
+  for (int i = 1; i < size; i++)
+  {
+    if (min > array[i]) min = array[i];
+  }
+  return min;
 }

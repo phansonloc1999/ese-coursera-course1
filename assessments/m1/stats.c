@@ -20,6 +20,7 @@
  */
 
 #include <stdio.h>
+#include <stdbool.h>
 #include "stats.h"
 
 /* Size of the Data Set */
@@ -56,15 +57,20 @@ void sort_array(unsigned char *array, int size)
 {
   for (int i = 0; i < size - 1; i++)
   {
+    bool swapped = false;
     for (int j = 0; j < size - i - 1; j++)
     {
-      if (array[i] < array[j])
+      if (array[j] >= array[j+1])
       {
-        unsigned char temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+        unsigned char temp = array[j];
+        array[j] = array[j+1];
+        array[j+1] = temp;
+
+        swapped = true;
       }
     }
+
+    if (!swapped) break;
   }
 }
 
@@ -73,7 +79,8 @@ unsigned char find_median(unsigned char *array, int size)
   sort_array(array, size);
   if (size % 2 == 0)
   {
-    return (unsigned char )(array[size / 2 - 1] + array[size / 2]) / 2;
+    return (unsigned char)(array[size / 2 - 1] + array[size / 2]) / 2;
   }
-  else return (unsigned char)array[size / 2];
+  else
+    return (unsigned char)array[size / 2];
 }

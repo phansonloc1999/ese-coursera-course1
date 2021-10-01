@@ -36,9 +36,9 @@ void main()
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
-
   sort_array(test, SIZE);
   print_array(test, SIZE);
+  printf("Median: %u", find_median(test, SIZE));
 }
 
 /* Add other Implementation File Code Here */
@@ -66,4 +66,14 @@ void sort_array(unsigned char *array, int size)
       }
     }
   }
+}
+
+unsigned char find_median(unsigned char *array, int size)
+{
+  sort_array(array, size);
+  if (size % 2 == 0)
+  {
+    return (unsigned char )(array[size / 2 - 1] + array[size / 2]) / 2;
+  }
+  else return (unsigned char)array[size / 2];
 }
